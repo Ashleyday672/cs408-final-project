@@ -1,18 +1,78 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Hello World!</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Project Tracker</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <h1>HTML Rocks!</h1>
-  <img src="img/compile.jpeg">
-  <script type="module" src="js/main.js"></script>
-</body>
+  <header>
+    <h1>School Project Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="#" id="dashboard-link">Dashboard</a></li>
+        <li><a href="#" id="projects-link">Projects</a></li>
+        <li><a href="#" id="detailed-project-link">Detailed Project</a></li>
+        <li><a href="#" id="categories-link">Subjects/Categories</a></li>
+        <li><a href="#" id="analytics-link">Progress/Analytics</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main id="content">
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="page">
+      <h2>Dashboard</h2>
+      <div class="widget">
+        <h3>Upcoming Deadlines</h3>
+        <ul id="upcoming-deadlines">
+          <li>Project 1 - Due: Tomorrow</li>
+          <li>Project 2 - Due: Next Week</li>
+        </ul>
+      </div>
+      <div class="widget">
+        <h3>Quick Actions</h3>
+        <button id="add-project">Add New Project</button>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="page hidden">
+      <h2>Projects</h2>
+      <div id="project-list">
+        <div class="project-card">
+          <h3>Math Assignment</h3>
+          <p>Due: Tomorrow</p>
+          <span class="status in-progress">In Progress</span>
+        </div>
+        <div class="project-card">
+          <h3>Science Project</h3>
+          <p>Due: Next Week</p>
+          <span class="status completed">Completed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Project Section -->
+    <section id="detailed-project" class="page hidden">
+      <h2>Detailed Project</h2>
+      <p>Placeholder for a detailed view of a specific project.</p>
+    </section>
+
+    <!-- Subjects/Categories Section -->
+    <section id="categories" class="page hidden">
+      <h2>Subjects/Categories</h2>
+      <p>Placeholder for organizing projects by subjects or categories.</p>
+    </section>
+
+    <!-- Progress/Analytics Section -->
+    <section id="analytics" class="page hidden">
+      <h2>Progress/Analytics</h2>
+      <p>Placeholder for displaying project completion rates and analytics.</p>
+    </section>
+  </main>
+
+  <script src="js/main.js" type="module"></script>
+</body>
 </html>
