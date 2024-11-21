@@ -12,64 +12,30 @@
     <nav>
       <ul>
         <li><a href="#" id="dashboard-link">Dashboard</a></li>
-        <li><a href="#" id="projects-link">Projects</a></li>
-        <li><a href="#" id="detailed-project-link">Detailed Project</a></li>
-        <li><a href="#" id="categories-link">Subjects/Categories</a></li>
-        <li><a href="#" id="analytics-link">Progress/Analytics</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="add-project.html">Add Project</a></li>
+        <li><a href="categories.html">Subjects</a></li>
+        <li><a href="analytics.html">Progress/Analytics</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="content">
-    <!-- Dashboard Section -->
+  <main>
+    <!-- Dashboard -->
     <section id="dashboard" class="page">
       <h2>Dashboard</h2>
       <div class="widget">
         <h3>Upcoming Deadlines</h3>
         <ul id="upcoming-deadlines">
-          <li>Project 1 - Due: Tomorrow</li>
-          <li>Project 2 - Due: Next Week</li>
+          <!-- Upcoming deadlines dynamically loaded -->
         </ul>
       </div>
       <div class="widget">
         <h3>Quick Actions</h3>
-        <button id="add-project">Add New Project</button>
+        <ul id="quick-actions">
+          <!-- Quick action buttons (delete, mark complete) -->
+        </ul>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="page hidden">
-      <h2>Projects</h2>
-      <div id="project-list">
-        <div class="project-card">
-          <h3>Math Assignment</h3>
-          <p>Due: Tomorrow</p>
-          <span class="status in-progress">In Progress</span>
-        </div>
-        <div class="project-card">
-          <h3>Science Project</h3>
-          <p>Due: Next Week</p>
-          <span class="status completed">Completed</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Detailed Project Section -->
-    <section id="detailed-project" class="page hidden">
-      <h2>Detailed Project</h2>
-      <p>Placeholder for a detailed view of a specific project.</p>
-    </section>
-
-    <!-- Subjects/Categories Section -->
-    <section id="categories" class="page hidden">
-      <h2>Subjects/Categories</h2>
-      <p>Placeholder for organizing projects by subjects or categories.</p>
-    </section>
-
-    <!-- Progress/Analytics Section -->
-    <section id="analytics" class="page hidden">
-      <h2>Progress/Analytics</h2>
-      <p>Placeholder for displaying project completion rates and analytics.</p>
     </section>
   </main>
 
