@@ -17,42 +17,75 @@ export function sayHello() {
     return 'hello';
 }
 document.addEventListener("DOMContentLoaded", () => {
-    // Navigation links
-    const links = {
-      dashboard: document.getElementById("dashboard-link"),
-      projects: document.getElementById("projects-link"),
-      detailedProject: document.getElementById("detailed-project-link"),
-      categories: document.getElementById("categories-link"),
-      analytics: document.getElementById("analytics-link"),
-    };
-  
-    // Page sections
-    const sections = {
-      dashboard: document.getElementById("dashboard"),
-      projects: document.getElementById("projects"),
-      detailedProject: document.getElementById("detailed-project"),
-      categories: document.getElementById("categories"),
-      analytics: document.getElementById("analytics"),
-    };
-  
-    // Add event listeners to links for navigation
-    Object.entries(links).forEach(([key, link]) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        showSection(key);
-      });
+  // Section references
+  const sections = {
+    dashboard: document.getElementById("dashboard"),
+  };
+
+  // Link references
+  const links = {
+    dashboard: document.getElementById("dashboard-link"),
+  };
+
+  // Show the selected section and hide others
+  function showSection(sectionId) {
+    Object.values(sections).forEach((section) => {
+      section.classList.add("hidden"); // Hide all sections
     });
-  
-    // Function to show a specific section and hide others
-    function showSection(sectionId) {
-      Object.values(sections).forEach((section) => {
-        section.classList.add("hidden");
-      });
-      sections[sectionId].classList.remove("hidden");
-    }
-  
-    // Placeholder for add-project functionality for next week :DDDDD
-    document.getElementById("add-project").addEventListener("click", () => {
-      alert("Add project functionality will be implemented next week!");
-    });
-  });
+    sections[sectionId]?.classList.remove("hidden"); // Show the selected section
+  }
+
+  // Load Dashboard
+  function loadDashboard() {
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+    // Populate deadlines
+    const deadlines = document.getElementById("upcoming-deadlines");
+    deadlines.innerHTML = projects
+      .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+      .slice(0, 5)
+      .map((project) => `<li>${project.title} - Due: ${project.dueDate}</li>`)
+      .join("");
+
+    // Populate quick actions
+    const quickActions = document.getElementById("quick-actions");
+    quickActions.innerHTML = projects
+      .map(
+        (project, index) =>
+          `<li>${project.title} 
+          <button data-index="${index}" class="delete-btn">Delete</button>
+          <button data-index="${index}" class="complete-btn">Complete</button>
+          </li>`
+      )
+      .join("");
+
+    attachQuickActionListeners();
+  }
+
+  // Attach event listeners for quick actions
+  function attachQuickActionListeners() {
+    document.querySelectorAll(".delete-btn").forEach((btn) =>
+      btn.addEventListener("click", (e) => {
+        const index = e.target.dataset.index;
+        const projects = JSON.parse(localStorage.getItem("projects")) || [];
+        projects.splice(index, 1); // Remove the selected project
+        localStorage.setItem("projects", JSON.stringify(projects));
+        loadDashboard(); // Reload dashboard
+      })
+    );
+
+    document.querySelectorAll(".complete-btn").forEach((btn) =>
+      btn.addEventListener("click", (e) => {
+        const index = e.target.dataset.index;
+        const projects = JSON.parse(localStorage.getItem("projects")) || [];
+        projects[index].status = "Completed"; // Mark as completed
+        localStorage.setItem("projects", JSON.stringify(projects));
+        loadDashboard(); // Reload dashboard
+        updateAnalytics(); // Update analytics
+      })
+    );
+  }
+
+  // Initial load
+  loadDashboard();
+});
