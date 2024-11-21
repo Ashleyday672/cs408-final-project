@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Project</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Add New Project</h1>
+    <nav>
+      <a href="index.html">Back to Home</a>
+    </nav>
+  </header>
+  <main>
+    <form id="add-project-form">
+      <label for="project-title">Project Title:</label>
+      <input type="text" id="project-title" name="project-title" required>
+
+      <label for="due-date">Due Date:</label>
+      <input type="date" id="due-date" name="due-date" required>
+
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <option value="English">English</option>
+      </select>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Enter project details..." required></textarea>
+
+      <button type="submit">Submit Project</button>
+    </form>
+  </main>
+  <script src="js/add-project.js" type="module"></script>
+</body>
+</html>
