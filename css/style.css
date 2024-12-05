@@ -3,8 +3,8 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #000428, #004e92); /* Dark gradient for neon feel */
-  color: #e0e0e0; /* Light gray text for readability */
+  background: linear-gradient(180deg, #000428, #004e92); 
+  color: #e0e0e0; 
 }
 
 header {
@@ -41,15 +41,15 @@ main {
 
 .page {
   margin-top: 1rem;
-  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black for depth */
+  background: rgba(0, 0, 0, 0.8); 
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Subtle shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); 
 }
 
 /* Widgets and Cards */
 .widget, .project-card, .category {
-  background: rgba(0, 0, 0, 0.6); /* Slightly lighter black */
+  background: rgba(0, 0, 0, 0.6); 
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -70,11 +70,14 @@ button {
   background: linear-gradient(90deg, #00ff7f, #1e90ff); /* Neon green to blue */
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 10px 20px; /* Increased padding for larger touch targets, failed this at first  */
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 8px rgba(0, 255, 127, 0.5); /* Neon green glow */
+  min-width: 48px; /* Minimum touch target width */
+  min-height: 48px; /* Minimum touch target height */
+  margin: 8px; /* Added margin for spacing */
 }
 
 button:hover {
@@ -90,11 +93,13 @@ form {
 }
 
 input, select, textarea {
-  padding: 0.5rem;
+  padding: 12px; /* Increased padding for larger touch targets */
   border: none;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
   color: #e0e0e0;
+  min-height: 48px; 
+  margin: 8px 0; /* Added spacing between form elements */
 }
 
 input::placeholder, textarea::placeholder {
@@ -109,9 +114,12 @@ input:focus, select:focus, textarea:focus {
 /* Status Indicators */
 .status {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 1rem; /* Increased padding for touch targets */
   border-radius: 5px;
   font-size: 0.9rem;
+  min-width: 48px; /* Ensure minimum size */
+  min-height: 48px;
+  margin: 8px; /* Added spacing */
 }
 
 .status.in-progress {
@@ -137,6 +145,11 @@ a {
   color: #1e90ff;
   text-decoration: none;
   transition: color 0.3s, text-shadow 0.3s;
+  padding: 10px; /* Ensure clickable size for links */
+  display: inline-block; /* Make links block-level for larger touch targets */
+  min-width: 48px; /* Minimum touch target size */
+  min-height: 48px;
+  margin: 8px; /* Added spacing */
 }
 
 a:hover {

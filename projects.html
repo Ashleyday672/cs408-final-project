@@ -13,14 +13,23 @@
   </header>
   <main>
     <h2>All Projects</h2>
+    
+    <!-- Search Bar -->
     <input type="text" id="search-bar" placeholder="Search projects..." />
-    <select id="filter-dropdown">
-      <option value="">Filter by subject</option>
-      <option value="Math">Math</option>
-      <option value="Science">Science</option>
-      <option value="History">History</option>
-      <option value="English">English</option>
-    </select>
+
+    <!-- Filter Dropdown with Label -->
+    <div>
+      <label for="filter-dropdown">Filter projects by subject:</label>
+      <select id="filter-dropdown">
+        <option value="">Filter by subject</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <option value="English">English</option>
+      </select>
+    </div>
+    
+    <!-- Project List -->
     <div id="project-list">
       <!-- Project cards dynamically loaded -->
     </div>
